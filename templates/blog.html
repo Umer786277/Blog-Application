@@ -1,0 +1,79 @@
+ {% extends 'base.html' %}
+
+ {% load static %}
+
+
+
+
+ {% block content %}
+ <!-- Blog Start -->
+ <div class="blog_main">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="blog_text">Our Blog</h1>
+            </div>
+        </div>
+        <div class="blog_section_2">
+            <div class="row">
+                <div class="col-sm-4">
+                    {%for post in posts%}
+                    <div class="section_1">
+                    <a href="{% url 'detail' %}">
+                        {% if post.image %}
+                        <div><img src="{{post.image.url}}" style="max-width: 100%;"></div>
+                        {% endif %}
+                        <button type="button" class="date-bt">{{ post.created_at|timesince }}</button>
+                        
+                    </a>
+                    <p>{{post.body}}</p>
+                    
+                    </div>
+                    {% endfor %}
+                </div>
+               
+        </div>
+       
+                
+            
+        
+       </div>
+</div> 
+
+<!--blog end -->
+ <!--Contact_section start -->
+ <div class="contact_main">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="touch_text">Contact Us</h1>
+            </div>
+        </div>
+    </div>
+    <div class="contact_section_2">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="map_icon">
+                        <img src=" {% static 'map-icon.png'%}" style="max-width: 100%;padding-left: 30px; ">
+                        <p class="email-text"><a href="#">Gb road 123 londo<br>Uk</a></p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="map_icon">
+                        <img src=" {% static 'call-icon.png'%}" style="max-width: 100%;padding-left: 30px;">
+                        <p class="email-text"><a href="#">+7123654897</a></p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="map_icon">
+                        <img src=" {% static 'email-icon.png'%}" style="max-width: 100%; padding-left: 30px;">
+                        <p class="email-text"><a href="#">demo@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Contact_section end -->
+
+{% endblock content %}
